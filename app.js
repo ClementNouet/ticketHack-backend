@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 require("./models/connection");
+const Trip = require("./models/trips");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
