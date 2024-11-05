@@ -26,8 +26,8 @@ router.post("/", (req, res) => {
 });
 
 // Route DELETE qui permet de supprimer le voyage concerné et de renvoyer les voyage contenu dans le cart
-router.delete("/", (req, res) => {
-  Cart.deleteOne({ _id: req.body.id }).then((deletedDoc) => {
+router.delete("/:id", (req, res) => {
+  Cart.deleteOne({ _id: req.params.id }).then((deletedDoc) => {
     if (deletedDoc.deletedCount > 0) {
       Cart.find().then((data) => res.json({ result: true, trip: data }));
       console.log("Trip successfully deleted");
