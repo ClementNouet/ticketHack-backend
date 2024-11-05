@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
     arrival: { $regex: new RegExp(req.body.arrival, "i") },
     date: { $gte: startOfDay, $lte: endOfDay },
   }).then((data) => {
-    if (data) {
+    if (data.length !== 0) {
       res.json({ result: true, trips: data });
     } else {
       res.json({ result: false, error: "Trip not found" });
