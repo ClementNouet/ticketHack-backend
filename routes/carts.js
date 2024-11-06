@@ -39,7 +39,13 @@ router.delete("/:id", (req, res) => {
 
 // Route GET qui permet de recupérer tous les voyages présent sur la BDD cart
 router.get("/", (req, res) => {
-  Cart.find().then((data) => res.json({ result: true, cart: data }));
+  Cart.find().then((data) => {
+    if (data.length > 0) {
+      res.json({ result: true, cart: data });
+    } else {
+      res.json({ result: false, error: "cart empty" });
+    }
+  });
 });
 
 module.exports = router;
