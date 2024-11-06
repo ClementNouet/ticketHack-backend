@@ -31,7 +31,13 @@ router.post("/:id", (req, res) => {
 
 // Route GET qui permet de recupérer tous les voyages présent sur la BDD bookings
 router.get("/", (req, res) => {
-  Booking.find().then((data) => res.json({ result: true, bookings: data }));
+  Booking.find().then((data) => {
+    if (data.length > 0) {
+      res.json({ result: true, bookings: data });
+    } else {
+      res.json({ result: false, error: "booking empty" });
+    }
+  });
 });
 
 module.exports = router;
