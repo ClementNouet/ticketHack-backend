@@ -17,11 +17,13 @@ router.post("/:id", (req, res) => {
         arrival: data.arrival,
         date: data.date,
         price: data.price,
+        start: moment(data.date).fromNow(),
       });
       newBooking
         .save()
         .then((newDoc) => res.json({ result: true, bookings: newDoc }));
       console.log("Trip added to bookings");
+
       Cart.deleteOne({ _id: req.params.id }).then(() => {});
     }
   });
