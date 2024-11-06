@@ -29,7 +29,7 @@ router.post("/:id", (req, res) => {
 
 // Route GET qui permet de recupérer tous les voyages présent sur la BDD bookings
 router.get("/", (req, res) => {
-  Booking.find().then((data) => res.json({ result: true, cart: data }));
+  Booking.find().then((data) => res.json({ result: true, bookings: data }));
 });
 
 module.exports = router;
