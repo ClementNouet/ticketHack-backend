@@ -8,9 +8,10 @@ require("./models/connection");
 const Trip = require("./models/trips");
 const Cart = require("./models/carts");
 const Booking = require("./models/bookings");
+const User = require("./models/users");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var userRouter = require("./routes/users");
 var tripsRouter = require("./routes/trip");
 var cartRouter = require("./routes/carts");
 var bookingsRouter = require("./routes/bookings");
@@ -26,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/users", userRouter);
 app.use("/trips", tripsRouter);
 app.use("/cart", cartRouter);
 app.use("/bookings", bookingsRouter);
