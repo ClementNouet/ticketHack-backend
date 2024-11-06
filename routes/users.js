@@ -8,7 +8,7 @@
 
 
   //
-  router.post('/signup', (req, res) => {
+  router.post('/signin', (req, res) => {
     User.find({
       email: { $regex: new RegExp(req.body.email, "i") },
       password: { $regex: new RegExp(req.body.password, "i") },
@@ -22,7 +22,7 @@
   })
 
 
-  router.post('/signin', (req, res) => {
+  router.post('/signup', (req, res) => {
     User.find({
       email: { $regex: new RegExp(req.body.email, "i") },
       password: { $regex: new RegExp(req.body.password, "i") },
