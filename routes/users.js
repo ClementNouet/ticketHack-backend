@@ -6,7 +6,6 @@ require("../models/connection");
 const fetch = require("node-fetch");
 const User = require("../models/users");
 
-//
 router.post("/signin", (req, res) => {
   User.find({
     email: req.body.email,
